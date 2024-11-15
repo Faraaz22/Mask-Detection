@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mask Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .upload-form {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .result img {
+            max-width: 300px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mask Detection using CNN</h1>
+    <p>Upload an image to check if the person is wearing a mask or not.</p>
+
+    <div class="upload-form">
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload Image</button>
+        </form>
+    </div>
+
+    {% if result %}
+    <div class="result">
+        <h2>{{ result }}</h2>
+        <img src="{{ image_path }}" alt="Uploaded Image">
+    </div>
+    {% endif %}
+</body>
+</html>
