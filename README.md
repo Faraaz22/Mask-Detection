@@ -24,11 +24,11 @@ Dataset Link: [Face Mask Dataset on Kaggle](https://www.kaggle.com/datasets/omka
 ├── static/
     ├──styles.css
 ├── templates/
-    ├──index.css                # Contains the model definition and training code
-├── FaceMaskDetection(1).ipynb       # Jupyter notebook to train the model
-├── mask_model.h5           # Saved trained model
-├── requirements.txt        # List of required dependencies
-└── README.md               # Project documentation
+    ├──index.css                
+├── FaceMaskDetection(1).ipynb      
+├── mask_model.h5         
+├── requirements.txt        
+└── README.md              
 ```
 
 
