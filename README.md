@@ -1,5 +1,7 @@
 # Face Mask Detection using CNN
 
+The project utilizes the concept of CNNs to to make predcitions based on given image input whether the person in the image is wearing a face mask or not.
+
 ## Dataset
 
 The dataset used contains two categories:
@@ -60,65 +62,6 @@ The model is compiled using:
 - **Optimizer**: Adam
 - **Loss Function**: Sparse categorical cross-entropy
 - **Metric**: Accuracy
-
-## Training
-
-The model is trained using the following code snippet:
-
-```python
-history = model.fit(X_train_scaled, y_train, epochs=10, validation_split=0.1, callbacks=[early_stopping])
-```
-
-### Early Stopping
-Early stopping is used to prevent overfitting. It monitors the validation loss and stops training if the validation loss doesn't improve after 3 consecutive epochs.
-
-## Model Evaluation
-
-After training, the model is evaluated on the test set to determine its accuracy:
-
-```python
-loss, score = model.evaluate(X_test_scaled, y_test, verbose=0)
-print("Test accuracy:", score)
-```
-
-The model achieved a test accuracy of approximately **92.5%**.
-
-## Model Prediction
-
-You can use the trained model to predict whether a person in a given image is wearing a mask or not. Example code to make predictions:
-
-```python
-input_image_path = 'path/to/your/image.jpg'
-input_image = cv2.imread(input_image_path)
-input_image_resized = cv2.resize(input_image, (128, 128))
-input_image_scaled = input_image_resized / 255
-input_image_reshaped = np.reshape(input_image_scaled, [1, 128, 128, 3])
-
-input_prediction = model.predict(input_image_reshaped)
-input_pred_label = np.argmax(input_prediction)
-
-if input_pred_label == 1:
-    print('The person in the image is wearing a mask')
-else:
-    print('The person in the image is not wearing a mask')
-```
-
-## Save the Model
-
-After training, the model is saved to a file using:
-
-```python
-model.save('mask_model.h5')
-```
-
-## Results
-
-During training, the model's accuracy and loss are plotted:
-
-- **Training Loss vs Validation Loss**
-- **Training Accuracy vs Validation Accuracy**
-
-These plots help in evaluating the model's performance over time.
 
 ## Screenshots
 <img width="953" alt="image" src="https://github.com/user-attachments/assets/566b863f-61db-4679-ab06-fc6fadeff6b1">
